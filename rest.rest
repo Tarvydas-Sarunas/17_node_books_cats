@@ -6,12 +6,34 @@ GET http://localhost:3000/api/users
 ### gauti visas karegorijas
 GET http://localhost:3000/api/categories
 
-### gauti visas knygas
+### prideti kategorija 
+POST http://localhost:3000/api/categories
+Content-Type: application/json
+
+{
+  "category": "Drame"
+}
+
+### gauti visas knygas kurion neistrinti kas yra lygu isDeleted=0
 GET http://localhost:3000/api/books
 
-### gauti visa knyga
+### gauti istrintu knygu archiva kas yra lygu isDeleted=1
+GET http://localhost:3000/api/books/archive
+
+### gauti viena knyga
 GET http://localhost:3000/api/books/2
 
 ### istrinti viena knyga
-DELETE http://localhost:3000/api/books/7
+DELETE http://localhost:3000/api/books/10
 
+### istrinti viena knyga
+POST http://localhost:3000/api/books
+Content-Type: application/json
+
+{
+    "title": "New book from post 2",
+    "author": "Naujoviskas",
+    "year": 2024,
+    "cat_id": 3,
+    "isDeleted": 0
+  }
