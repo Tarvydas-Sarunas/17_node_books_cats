@@ -13,6 +13,23 @@ booksRouter.get('/api/books', async (req, res) => {
   res.json(rows);
 });
 
+// gauti visas knygas su kategorijos pavadinimu ir kad jos butu ne istrintos
+booksRouter.get('/api/books/category', async (req, res) => {
+  const sql = `
+  SELECT book_id, title, author, year, categories.category
+  FROM books 
+  INNER JOIN categories 
+  ON books.cat_id=categories.cat_id
+  WHERE isDeleted=0
+  `;
+  const [rows, error] = await dbQueryWithData(sql);
+  if (error) {
+    res.status(500).json({ error: 'Internal server error' });
+    return;
+  }
+  res.json(rows);
+});
+
 // POST /api/books - sukurti nauja knyga
 booksRouter.post('/api/books', async (req, res) => {
   const sql = `INSERT INTO books (title, author, year, cat_id, isDeleted) VALUES (?, ?, ?, ?, ?)`;

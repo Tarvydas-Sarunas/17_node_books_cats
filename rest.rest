@@ -20,6 +20,9 @@ GET http://localhost:3000/api/books
 ### gauti istrintu knygu archiva kas yra lygu isDeleted=1
 GET http://localhost:3000/api/books/archive
 
+### gauti ne istrintu knygu sarasa su kategorijomis
+GET http://localhost:3000/api/books/category
+
 ### gauti viena knyga
 GET http://localhost:3000/api/books/2
 

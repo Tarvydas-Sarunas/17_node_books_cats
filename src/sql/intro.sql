@@ -24,3 +24,15 @@ INSERT INTO posts
   (title, author, date, body) 
   VALUES ('Post 5', 'Mike T', '2023-12-15', 'Post about Boxing from T. ');
 
+-- books with categories
+
+SELECT book_id, title, author, year, categories.category 
+FROM books 
+INNER JOIN categories 
+ON books.cat_id=categories.cat_id;
+
+SELECT book_id, title, author, year, categories.category , isDeleted
+FROM books 
+INNER JOIN categories 
+ON books.cat_id=categories.cat_id
+WHERE isDeleted=0
