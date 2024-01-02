@@ -3,3 +3,15 @@ GET http://localhost:3000
 ###
 GET http://localhost:3000/api/users
 
+### gauti visas karegorijas
+GET http://localhost:3000/api/categories
+
+### gauti visas knygas
+GET http://localhost:3000/api/books
+
+### gauti visa knyga
+GET http://localhost:3000/api/books/2
+
+### istrinti viena knyga
+DELETE http://localhost:3000/api/books/7
+

@@ -18,6 +18,13 @@ app.use(express.json());
 app.get('/', (req, res) => {
   res.send('Hello World');
 });
+// inportuoju routerius
+const categoriesRouter = require('./routes/categoriesRoutes');
+const booksRouter = require('./routes/booksRoutes');
+
+// panaudoju routes
+app.use('/', categoriesRouter);
+app.use('/', booksRouter);
 
 // connect
 async function testConnection() {
