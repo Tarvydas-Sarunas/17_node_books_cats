@@ -34,9 +34,13 @@ POST http://localhost:3000/api/books
 Content-Type: application/json
 
 {
-    "title": "New book from post 2",
-    "author": "Naujoviskas",
+    "title": "Geras knyga",
+    "author": "Darviena",
     "year": 2024,
-    "cat_id": 3,
-    "isDeleted": 0
+    "cat_id": 6
   }
+
+### gauti viena posta
+GET http://localhost:3000/api/posts/5
+
+

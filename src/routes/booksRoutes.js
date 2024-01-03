@@ -32,21 +32,16 @@ booksRouter.get('/api/books/category', async (req, res) => {
 
 // POST /api/books - sukurti nauja knyga
 booksRouter.post('/api/books', async (req, res) => {
-  const sql = `INSERT INTO books (title, author, year, cat_id, isDeleted) VALUES (?, ?, ?, ?, ?)`;
-  const { title, author, year, cat_id, isDeleted } = req.body;
-  const [rez, error] = await dbQueryWithData(sql, [
-    title,
-    author,
-    year,
-    cat_id,
-    isDeleted,
-  ]);
+  const sql = `INSERT INTO books (title, author, year, cat_id) VALUES (?, ?, ?, ?)`;
+  const { title, author, year, cat_id: catId } = req.body;
+  const argArr = [title, author, year, catId];
+  const [rezObj, error] = await dbQueryWithData(sql, argArr);
   if (error) {
     res.status(500).json({ error: 'Internal server error' });
     return;
   }
-  if (rez.affectedRows === 1) {
-    res.status(200).json({ msg: 'Your category was added' });
+  if (rezObj.affectedRows === 1) {
+    res.status(200).json({ msg: 'Your book was added' });
   } else {
     res.status(400).json({ msg: 'Something went wrong' });
   }

@@ -3,7 +3,7 @@ const { dbQueryWithData } = require('../helper');
 const categoriesRouter = express.Router();
 
 // routes
-// GET /api/categories - grazins kategorijas su id
+// GET /api/categories - grazins visas kategorijas
 categoriesRouter.get('/api/categories', async (req, res) => {
   const sql = 'SELECT * FROM `categories` WHERE 1';
   const [rows, error] = await dbQueryWithData(sql);

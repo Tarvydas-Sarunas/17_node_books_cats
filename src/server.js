@@ -21,10 +21,14 @@ app.get('/', (req, res) => {
 // inportuoju routerius
 const categoriesRouter = require('./routes/categoriesRoutes');
 const booksRouter = require('./routes/booksRoutes');
+const commentsRouter = require('./routes/commentsRoutes');
+const postsRouter = require('./routes/postsRoutes');
 
 // panaudoju routes
 app.use('/', categoriesRouter);
 app.use('/', booksRouter);
+app.use('/', commentsRouter);
+app.use('/', postsRouter);
 
 // connect
 async function testConnection() {
